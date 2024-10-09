@@ -1,0 +1,99 @@
+thead {
+  background-color: #2e2e2e;
+  color: #fff;
+  width: 100%;
+}
+
+tbody {
+  background-color: #222323;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+  color: white
+}
+
+.disableField{
+    color: grey;
+}
+
+td {
+  text-align: left;
+}
+
+.name{
+    width: 70px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.category{
+    width: 90px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.price{
+    width: 70px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.quantity{
+    width: 90px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.value{
+    width: 70px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.action{
+    width: 70px; border: 1px; border-radius: 10px; background-color: black;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    color: rgb(162, 217, 32);
+}
+
+.container-table{
+    margin: 20px;
+    margin-bottom: 0px;
+    border-color: #afafaf;
+}
+
+.icons{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.content{
+    height: 60px;
+}
+
+.headers{
+    width: 200px;
+}

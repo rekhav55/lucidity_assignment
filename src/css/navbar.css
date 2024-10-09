@@ -1,0 +1,18 @@
+.switch{
+    background-color: grey
+}
+
+#admin-class{
+    color: white;
+    margin-right: 10px; 
+}
+
+#user-class{
+    color: white;
+    margin-right: 50px;
+    margin-left: 10px;
+}
+
+.signout{
+    color: white; margin-right: 30px;
+}
