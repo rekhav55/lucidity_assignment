@@ -8,15 +8,16 @@ import axios from 'axios';
 import EditProductModal from './components/editProduct';
 
 function App() {
-  const [isAdminMode, setIsAdminMode] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [isAdminMode, setIsAdminMode] = useState(false); //used to state whether it is admin mode or user mode
+  const [products, setProducts] = useState([]); // maintain the products array
+  const [selectedProduct, setSelectedProduct] = useState(null); //hold the product to be updated
+  const [showModal, setShowModal] = useState(false); // used to ope and close the edit form
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  //fetch products list
   const fetchProducts = async () => {
     const response = await axios.get("https://dev-0tf0hinghgjl39z.api.raw-labs.com/inventory");
     const productsWithIsDisabled = response.data.map((product) => ({
@@ -25,17 +26,23 @@ function App() {
     }));
     setProducts(productsWithIsDisabled);
   };
+  //fucntion to update admin mode
   const handleModeChange = () => setIsAdminMode(!isAdminMode);
+  //function to handle edit form modal 
   const handleShowModal = () => setShowModal(!showModal);
+
+  //function to update the product to be updated
   const handleEdit = (product) => {
     setSelectedProduct(product);
     setShowModal(true);
   };
 
+  //function to delete product
   const handleDelete = (name) => {
     setProducts(products.filter((product) => product.name !== name));
   };
 
+  //function to disable product
   const handleDisable = (name, isDisabled) => {
     setProducts(
       products.map((product) =>
@@ -44,11 +51,13 @@ function App() {
     );
   };
 
+  //fucntion to handle edit form changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSelectedProduct({ ...selectedProduct, [name]: value });
   };
 
+  //function to update the product array after editing
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setProducts(
@@ -59,12 +68,16 @@ function App() {
     setShowModal(false);
   };
 
+  //calculate total products
   const totalProducts = products.length;
-  const totalValue = products.reduce((acc, product) => {
+  //calculate total store value
+  const totalValue = products.reduce((val, product) => {
     const numericValue = parseInt(product.value.replace('$', ''));
-    return acc + numericValue;
+    return val + numericValue;
   }, 0);
+  //calculate out of stock product
   const outOfStock = products.filter((product) => product.quantity === 0).length;
+  //calculate total categories of product 
   const totalCategories = new Set(products.map((product) => product.category)).size;
 
   return (
